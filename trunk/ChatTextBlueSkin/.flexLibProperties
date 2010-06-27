@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<flexLibProperties includeAllClasses="true" version="3">
+  <includeClasses/>
+  <includeResources>
+    <resourceEntry destPath="assets/.DS_Store" sourcePath="assets/.DS_Store"/>
+    <resourceEntry destPath="assets/flash/error.png" sourcePath="assets/flash/error.png"/>
+    <resourceEntry destPath="assets/flash/tech-blue-skins.fla" sourcePath="assets/flash/tech-blue-skins.fla"/>
+    <resourceEntry destPath="assets/flash/tech-blue-skins.swf" sourcePath="assets/flash/tech-blue-skins.swf"/>
+    <resourceEntry destPath="assets/flash/text-field.png" sourcePath="assets/flash/text-field.png"/>
+    <resourceEntry destPath="assets/flash/window.png" sourcePath="assets/flash/window.png"/>
+  </includeResources>
+  <namespaceManifests/>
+</flexLibProperties>
