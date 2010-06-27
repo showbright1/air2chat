@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:WindowedApplication 
+	xmlns:fx="http://ns.adobe.com/mxml/2009" 
+	xmlns:s="library://ns.adobe.com/flex/spark" 
+	xmlns:mx="library://ns.adobe.com/flex/mx"
+	creationComplete="init()"
+	width="500" height="500" 
+	visible="false"
+	xmlns:controls="com.jxl.chatserver.controls.*" 
+	xmlns:views="com.jxl.chatserver.views.*" 
+	xmlns:rl="com.jxl.chatserver.rl.*" 
+	xmlns:contexts="com.jxl.chatserver.rl.contexts.*">
+	
+	<fx:Metadata>
+		[Event(name="startServer", type="com.jxl.chatserver.events.ChatServerEvent")]
+		[Event(name="boot", type="com.jxl.chatserver.events.BootUserEvent")]
+	</fx:Metadata>
+	
+	<fx:Script>
+		<![CDATA[
+			import com.jxl.chatserver.views.ChatServerView;
+			import mx.core.Window;
+			
+			private var debugWin:Window;
+			private var view:ChatServerView;
+			
+			private function init():void
+			{
+				//openDebugWindow();
+				
+				view = new ChatServerView();
+				view.addEventListener(Event.CLOSE, onClose);
+				view.open(true);
+			}
+			
+			private function onClose(event:Event):void
+			{
+				view = null;
+				exit();
+			}
+			
+			private function openDebugWindow():void
+			{
+				if(debugWin == null)
+				{
+					debugWin = new Window();
+					debugWin.addEventListener(Event.CLOSE, onDebugClosed);
+					debugWin.addChild(new DebugMax());
+					debugWin.open();
+					debugWin.width = 556;
+					debugWin.height = 418;
+					debugWin.move(0, 0);
+				}
+				else
+				{
+					debugWin.activate();
+				}
+			}
+			
+			private function onDebugClosed(event:Event):void
+			{
+				if(debugWin)
+				{
+					debugWin.removeEventListener(Event.CLOSE, onDebugClosed);
+					debugWin = null;
+				}
+			}
+			
+		]]>
+	</fx:Script>
+	
+</s:WindowedApplication>
